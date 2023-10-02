@@ -44,10 +44,10 @@ export class AuthService {
         return new SerializedUser(createUserDto);
       }
     } catch (error) {
-      this.logger.error(error.message, error.stack);
       if (error.status && error.status === HttpStatus.BAD_REQUEST) {
         throw error;
       }
+      this.logger.error(error.message, error.stack);
       throw new InternalServerErrorException();
     }
   }
@@ -84,7 +84,10 @@ export class AuthService {
         );
       }
     } catch (error) {
-      this.logger.error(error.message, error.stack);
+      if (error.status && error.status === HttpStatus.INTERNAL_SERVER_ERROR) {
+        this.logger.error(error.message, error.stack);
+        throw error;
+      }
       throw error;
     }
   }
