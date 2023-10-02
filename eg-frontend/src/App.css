@@ -1,0 +1,12 @@
+.App-theme {
+  color: #ffa72c;
+  background-color: #ffa72c;
+  border-color: #ffa72c !important;
+}
+
+:root {
+  --bs-border-color: #ffa72c !important;
+  --bs-primary: #ffa72c !important;
+  --bs-btn-color: #ffa72c !important;
+  --bs-btn-bg: #ffa72c !important;
+}
